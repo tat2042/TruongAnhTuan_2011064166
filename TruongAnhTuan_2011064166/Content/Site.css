@@ -18,3 +18,46 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.navbar-inverse {
+    background-color:lightskyblue;
+    border-color:white;
+}
+
+.navbar-inverse.navbar-nav > li > a {
+        color: red;
+    }
+
+.navbar-inverse.navbar-brand {
+        color: red;
+    }
+
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus {
+        background-color: red;
+        border-color: red
+    }
+
+.course{
+    list-style:none;
+}
+
+.course > li{
+    position:relative;
+    margin-bottom:30px;
+}
+
+.course >li .date{
+    text-align:center;
+    background-color:brown;
+    color:white;
+    width:60px;
+    border-radius:9px;
+
+}
+
+.course >li .detail{
+    position:absolute;
+    top:0;
+    left:70px;
+}
