@@ -20,6 +20,8 @@ namespace TruongAnhTuan_2011064166.ViewModels
         [Required]
         public byte Category { get; set; }
         public IEnumerable<Category> Categories { get; set; }
+  
+      
 
         public DateTime GetDateTime()
         {

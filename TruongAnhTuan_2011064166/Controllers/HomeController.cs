@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Web;
 using System.Web.Mvc;
 using TruongAnhTuan_2011064166.Models;
-using System.Data.Entity;
-
+using TruongAnhTuan_2011064166.ViewModels;
 
 namespace TruongAnhTuan_2011064166.Controllers
 {
@@ -20,11 +20,17 @@ namespace TruongAnhTuan_2011064166.Controllers
         public ActionResult Index()
         {
             var upcomingCourses = _dbContext.Courses
-                .Include(c => c.Lecturer)
+               .Include(c => c.Lecturer)
                 .Include(c => c.Category)
               .Where(c => c.DateTime > DateTime.Now);
 
-            return View(upcomingCourses);
+            var viewModel = new CoursesViewModel
+            {
+                UpcomingCourse = upcomingCourses,
+                ShowAction = User.Identity.IsAuthenticated
+            };
+
+            return View(viewModel);
         }
 
         public ActionResult About()
